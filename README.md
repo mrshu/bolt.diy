@@ -1,4 +1,5 @@
 [![Bolt.new: AI-Powered Full-Stack Web Development in the Browser](./public/social_preview_index.jpg)](https://bolt.new)
+Welcome to the **Bolt** open-source codebase! This repo provides everything you need to start building **AI-powered software development tools** powered by StackBlitz’s **WebContainer API**.
 
 # Bolt.new Fork by Cole Medin
 
@@ -91,7 +92,6 @@ Bolt uses the [AI SDK](https://github.com/vercel/ai) to integrate with AI
 models. At this time, Bolt supports using Anthropic's Claude Sonnet 3.5.
 You can get an API key from the [Anthropic API Console](https://console.anthropic.com/) to use with Bolt.
 Take a look at how [Bolt uses the AI SDK](https://github.com/stackblitz/bolt-oss/tree/main/app/lib/.server/llm)
-
 
 ## Prerequisites
 

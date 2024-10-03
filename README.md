@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 [![Bolt.new: AI-Powered Full-Stack Web Development in the Browser](./public/social_preview_index.jpg)](https://bolt.new)
 Welcome to the **Bolt** open-source codebase! This repo provides everything you need to start building **AI-powered software development tools** powered by StackBlitz’s **WebContainer API**.
 
@@ -6,7 +5,6 @@ This fork of Bolt.new allows you to choose the LLM that you use for each prompt!
 
 # Requested Additions to this Fork - Feel Free to Contribute
 
-=======
 [![Bolt Open Source Codebase](./public/social_preview_index.jpg)](https://bolt.new)
 
 > Welcome to the **Bolt** open-source codebase! This repo provides everything you need to start building **AI-powered software development tools** powered by StackBlitz’s **WebContainer API**.
@@ -14,8 +12,6 @@ This fork of Bolt.new allows you to choose the LLM that you use for each prompt!
 ### Why Build with Bolt + WebContainer API
 
 By building with the Bolt + WebContainer API you can create browser-based applications that let users **prompt, run, edit, and deploy** full-stack web apps directly in the browser, without the need for virtual machines. With WebContainer API, you can build apps that give AI direct access and full control over a **Node.js server**, **filesystem**, **package manager** and **dev terminal** inside your users browser tab. This powerful combination allows you to create a new class of development tools that support all major javascript libraries and node packages right out of the box, all without remote environments or local installs.
-
-> > > > > > > 85d2b6f (feat: add readme image (#4))
 
 - ✅ OpenRouter Integration (@coleam00)
 - ✅ Gemini Integration (@jonathands)
@@ -50,8 +46,6 @@ By building with the Bolt + WebContainer API you can create browser-based applic
 - ⬜ VSCode Integration with git-like confirmations
 - ⬜ Upload documents for knowledge - UI design templates, a code base to reference coding style, etc.
 - ⬜ Voice prompting
-
-# Bolt.new: AI-Powered Full-Stack Web Development in the Browser
 
 Bolt.new is an AI-powered web development agent that allows you to prompt, run, edit, and deploy full-stack applications directly from your browser—no local setup required. If you're here to build your own AI-powered web dev agent using the Bolt open source codebase, [click here to get started!](./CONTRIBUTING.md)
 
@@ -106,7 +100,7 @@ deployed using [CloudFlare Pages](https://pages.cloudflare.com/) and
 Bolt uses the [AI SDK](https://github.com/vercel/ai) to integrate with AI
 models. At this time, Bolt supports using Anthropic's Claude Sonnet 3.5.
 You can get an API key from the [Anthropic API Console](https://console.anthropic.com/) to use with Bolt.
-Take a look at how [Bolt uses the AI SDK](https://github.com/stackblitz/bolt-oss/tree/main/app/lib/.server/llm)
+Take a look at how [Bolt uses the AI SDK](https://github.com/stackblitz/bolt.new/tree/main/app/lib/.server/llm)
 
 ## Prerequisites
 

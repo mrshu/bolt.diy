@@ -59,7 +59,9 @@ Claude, v0, etc are incredible- but you can't install packages, run backends, or
 
 Whether you’re an experienced developer, a PM, or a designer, Bolt.new allows you to easily build production-grade full-stack applications.
 
-For developers interested in building their own AI-powered development tools with WebContainers, check out the open-source Bolt codebase in this repo!
+# For developers interested in building their own AI-powered development tools with WebContainers, check out the open-source Bolt codebase in this repo
+
+# Get Started Building with Bolt
 
 Bolt combines the capabilities of AI with sandboxed development environments
 to create a collaborative experience where code can be developed by the
@@ -77,6 +79,8 @@ stack applications directly in the browser without the cost and security
 concerns of cloud hosted AI agents. WebContainers are interactive and editable,
 and enables Bolt's AI to run code and understand any changes from the user.
 Take a look at how [Bolt integrates with WebContainer API](https://github.com/search?q=repo%3Astackblitz%2Fbolt-oss%20%40webcontainer%2Fapi&type=code).
+
+The [WebContainer API](https://webcontainers.io) is free for personal and open source usage. If you're building an application for commercial usage, you can learn more about our [WebContainer API commercial usage pricing here](https://stackblitz.com/pricing#webcontainer-api).
 
 ### Remix App
 

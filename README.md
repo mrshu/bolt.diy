@@ -4,7 +4,7 @@
 
 This fork of Bolt.new allows you to choose the LLM that you use for each prompt! Currently, you can use OpenAI, Anthropic, Ollama, OpenRouter, Gemini, or Groq models - and it is easily extended to use any other model supported by the Vercel AI SDK! See the instructions below for running this locally and extending it to include more models.
 
-# Requested Additions to this Fork - Feel Free to Contribute!!
+# Requested Additions to this Fork - Feel Free to Contribute
 
 - ✅ OpenRouter Integration (@coleam00)
 - ✅ Gemini Integration (@jonathands)
@@ -49,13 +49,14 @@ Bolt.new is an AI-powered web development agent that allows you to prompt, run, 
 Claude, v0, etc are incredible- but you can't install packages, run backends, or edit code. That’s where Bolt.new stands out:
 
 - **Full-Stack in the Browser**: Bolt.new integrates cutting-edge AI models with an in-browser development environment powered by **StackBlitz’s WebContainers**. This allows you to:
+
   - Install and run npm tools and libraries (like Vite, Next.js, and more)
   - Run Node.js servers
   - Interact with third-party APIs
   - Deploy to production from chat
   - Share your work via a URL
 
-- **AI with Environment Control**: Unlike traditional dev environments where the AI can only assist in code generation, Bolt.new gives AI models **complete control** over the entire  environment including the filesystem, node server, package manager, terminal, and browser console. This empowers AI agents to handle the whole app lifecycle—from creation to deployment.
+- **AI with Environment Control**: Unlike traditional dev environments where the AI can only assist in code generation, Bolt.new gives AI models **complete control** over the entire environment including the filesystem, node server, package manager, terminal, and browser console. This empowers AI agents to handle the whole app lifecycle—from creation to deployment.
 
 Whether you’re an experienced developer, a PM, or a designer, Bolt.new allows you to easily build production-grade full-stack applications.
 
@@ -72,9 +73,9 @@ Before you begin, ensure you have the following installed:
 
 Many of you are new users to installing software from Github. Below are instructions for Mac users. PC users may be able to follow the instructions below as well. If you have any installation troubles reach out and submit an "issue" using the links above, or feel free to enhance this documentation by forking, editing the instructions, and doing a pull request.
 
-1. Install Git from https://git-scm.com/downloads
+1. Install Git from <https://git-scm.com/downloads>
 
-2. Install Node.js from https://nodejs.org/en/download/. Pay attention to the installer notes after completion. On a Mac, it will tell you to check if /usr/local/bin is in your $PATH. To determine if usr/local/bin is included in $PATH open your Terminal and run 
+2. Install Node.js from <https://nodejs.org/en/download/>. Pay attention to the installer notes after completion. On a Mac, it will tell you to check if /usr/local/bin is in your $PATH. To determine if usr/local/bin is included in $PATH open your Terminal and run
 
 ```
 echo $PATH .
@@ -112,11 +113,11 @@ defaults write com.apple.finder AppleShowAllFiles YES
 
 **NOTE**: you only have to set the ones you want to use and Ollama doesn't need an API key because it runs locally on your computer:
 
-Get your GROQ API Key here: https://console.groq.com/keys
+Get your GROQ API Key here: <https://console.groq.com/keys>
 
-Get your Open AI API Key by following these instructions: https://help.openai.com/en/articles/4936850-where-do-i-find-my-openai-api-key
+Get your Open AI API Key by following these instructions: <https://help.openai.com/en/articles/4936850-where-do-i-find-my-openai-api-key>
 
-Get your Anthropic API Key in your account settings: https://console.anthropic.com/settings/keys
+Get your Anthropic API Key in your account settings: <https://console.anthropic.com/settings/keys>
 
 ```
 GROQ_API_KEY=XXX
@@ -132,9 +133,9 @@ VITE_LOG_LEVEL=debug
 
 **Important**: Never commit your `.env.local` file to version control. It's already included in .gitignore.
 
-## Adding New LLMs:
+## Adding New LLMs
 
-To make new LLMs available to use in this version of Bolt.new, head on over to `app/utils/constants.ts` and find the constant MODEL_LIST. Each element in this array is an object that has the model ID for the name (get this from the provider's API documentation), a label for the frontend model dropdown, and the provider. 
+To make new LLMs available to use in this version of Bolt.new, head on over to `app/utils/constants.ts` and find the constant MODEL_LIST. Each element in this array is an object that has the model ID for the name (get this from the provider's API documentation), a label for the frontend model dropdown, and the provider.
 
 By default, Anthropic, OpenAI, Groq, and Ollama are implemented as providers, but the YouTube video for this repo covers how to extend this to work with more providers if you wish!
 
@@ -172,3 +173,41 @@ Here are some tips to get the most out of Bolt.new:
 - **Scaffold the basics first, then add features**: Make sure the basic structure of your application is in place before diving into more advanced functionality. This helps Bolt understand the foundation of your project and ensure everything is wired up right before building out more advanced functionality.
 
 - **Batch simple instructions**: Save time by combining simple instructions into one message. For example, you can ask Bolt to change the color scheme, add mobile responsiveness, and restart the dev server, all in one go saving you time and reducing API credit consumption significantly.
+
+```bash
+pnpm run deploy
+```
+
+Make sure you have the necessary permissions and Wrangler is correctly configured for your Cloudflare account.
+
+## Getting Started
+
+Bolt combines the capabilities of AI with sandboxed development environments
+to create a collaborative experience where code can be developed by the
+assistant and the programmer together. Bolt combines
+[WebContainer API](https://webcontainers.io/api) with
+[Claude Sonnet 3.5](https://www.anthropic.com/news/claude-3-5-sonnet)
+using [Remix](https://remix.run/) and the [AI SDK](https://sdk.vercel.ai/).
+
+### WebContainer API
+
+Bolt uses [WebContainers](https://webcontainers.io/) to run generated code in
+the browser. WebContainers provide Bolt with a full-stack sandbox environment
+using [WebContainer API](https://webcontainers.io/api). WebContainer run full-
+stack applications directly in the browser without the cost and security
+concerns of cloud hosted AI agents. WebContainers are interactive and editable,
+and enables Bolt's AI to run code and understand any changes from the user.
+Take a look at how [Bolt integrates with WebContainer API](https://github.com/search?q=repo%3Astackblitz%2Fbolt-oss%20%40webcontainer%2Fapi&type=code).
+
+### Remix App
+
+Bolt is built with [Remix](https://remix.run/) and
+deployed using [CloudFlare Pages](https://pages.cloudflare.com/) and
+[CloudFlare Workers](https://workers.cloudflare.com/).
+
+### AI SDK Integration
+
+Bolt uses the [AI SDK](https://github.com/vercel/ai) to integrate with AI
+models. At this time, Bolt supports using Anthropic's Claude Sonnet 3.5.
+You can get an API key from the [Anthropic API Console](https://console.anthropic.com/) to use with Bolt.
+Take a look at how [Bolt uses the AI SDK](https://github.com/stackblitz/bolt-oss/tree/main/app/lib/.server/llm)

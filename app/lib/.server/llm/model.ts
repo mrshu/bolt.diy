@@ -8,7 +8,7 @@ import { ollama } from 'ollama-ai-provider';
 import { createOpenRouter } from "@openrouter/ai-sdk-provider";
 import { mistral } from '@ai-sdk/mistral';
 import { createMistral } from '@ai-sdk/mistral';
-import { createAzure } from '@ai-sdk/azure'; 
+import { createAzure } from '@ai-sdk/azure';
 
 export function getAnthropicModel(apiKey: string, model: string) {
   const anthropic = createAnthropic({
@@ -17,7 +17,7 @@ export function getAnthropicModel(apiKey: string, model: string) {
 
   return anthropic(model);
 }
-export function getOpenAILikeModel(baseURL:string,apiKey: string, model: string) {
+export function getOpenAILikeModel(baseURL: string, apiKey: string, model: string) {
   const openai = createOpenAI({
     baseURL,
     apiKey,
@@ -33,7 +33,7 @@ export function getOpenAIModel(apiKey: string, model: string) {
   return openai(model);
 }
 
-export function getAzureOpenAIModel(baseURL:string,apiKey: string, model: string) {
+export function getAzureOpenAIModel(baseURL: string, apiKey: string, model: string) {
   function extractResourceName(url) {
     const regex = /^https:\/\/([^\.]+)\./;
     const match = url.match(regex);
@@ -43,12 +43,17 @@ export function getAzureOpenAIModel(baseURL:string,apiKey: string, model: string
       return null; // or throw an error, depending on how you want to handle this case
     }
   }
-  
+
   const resourceName = extractResourceName(baseURL);
 
   const azureOpenAI = createAzure({
     apiKey,
     resourceName: resourceName,
+    baseURL: baseURL,
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${apiKey}`
+    }
   });
 
   return azureOpenAI(model);
@@ -85,7 +90,7 @@ export function getOllamaModel(baseURL: string, model: string) {
   return Ollama;
 }
 
-export function getDeepseekModel(apiKey: string, model: string){
+export function getDeepseekModel(apiKey: string, model: string) {
   const openai = createOpenAI({
     baseURL: 'https://api.deepseek.com/beta',
     apiKey,
@@ -112,7 +117,7 @@ export function getModel(provider: string, model: string, env: Env) {
     case 'OpenAI':
       return getOpenAIModel(apiKey, model);
     case 'AzureOpenAI':
-      return getAzureOpenAIModel(baseURL,apiKey, model);
+      return getAzureOpenAIModel(baseURL, apiKey, model);
     case 'Groq':
       return getGroqModel(apiKey, model);
     case 'OpenRouter':
@@ -120,11 +125,11 @@ export function getModel(provider: string, model: string, env: Env) {
     case 'Google':
       return getGoogleModel(apiKey, model)
     case 'OpenAILike':
-      return getOpenAILikeModel(baseURL,apiKey, model);
+      return getOpenAILikeModel(baseURL, apiKey, model);
     case 'Deepseek':
       return getDeepseekModel(apiKey, model)
     case 'Mistral':
-      return  getMistralModel(apiKey, model);
+      return getMistralModel(apiKey, model);
     default:
       return getOllamaModel(baseURL, model);
   }

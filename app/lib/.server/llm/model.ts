@@ -107,6 +107,14 @@ export function getOpenRouterModel(apiKey: string, model: string) {
   return openRouter.chat(model);
 }
 
+export function getLMStudioModel(baseURL: string, model: string) {
+  const lmstudio = createOpenAI({
+    baseUrl: `${baseURL}/v1`,
+  });
+
+  return lmstudio(model);
+}
+
 export function getModel(provider: string, model: string, env: Env) {
   const apiKey = getAPIKey(env, provider);
   const baseURL = getBaseURL(env, provider);
